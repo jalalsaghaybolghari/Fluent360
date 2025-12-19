@@ -1,0 +1,24 @@
+<svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shattered glass icon on a warning label.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1f2937"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  
+    <rect x="260" y="200" width="440" height="320" rx="22" fill="#111827" stroke="#fbbf24" stroke-width="10" opacity="0.9"/>
+    <polygon points="320,240 440,300 400,340 520,380 420,440 520,500 360,500 360,320" fill="#f97316" opacity="0.85"/>
+    <line x1="360" y1="220" x2="600" y2="220" stroke="#fbbf24" stroke-width="10"/>
+    <line x1="320" y1="520" x2="640" y2="520" stroke="#fbbf24" stroke-width="10"/>
+    
+  <rect x="40" y="36" width="360" height="140" rx="22" fill="#0b0f1a" opacity="0.65"/>
+  <text x="64" y="98" fill="#f8fafc" font-family="Helvetica, Arial, sans-serif" font-size="52" font-weight="700">Fragile</text>
+  <text x="64" y="136" fill="#e2e8f0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="500">Easily broken or damaged.</text>
+  <text x="64" y="168" fill="#cbd5e1" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600">adjective · CEFR B2</text>
+</svg>
