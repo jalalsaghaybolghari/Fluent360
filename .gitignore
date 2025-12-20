@@ -1,0 +1,13 @@
+node_modules
+dist
+
+# environment variables
+.env
+.env.local
+
+# editor and system files
+.vscode
+.DS_Store
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml

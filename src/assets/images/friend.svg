@@ -1,0 +1,10 @@
+<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='friend illustration'>
+  <defs>
+    <linearGradient id='friend-bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#0f172a' />
+      <stop offset='100%' stop-color='#1e293b' />
+    </linearGradient>
+  </defs>
+  <rect width='200' height='200' rx='24' fill='url(#friend-bg)' />
+  <g transform='translate(0,0)'><circle cx="70" cy="90" r="20" fill="#38bdf8"/><circle cx="110" cy="90" r="20" fill="#f472b6"/><rect x="50" y="110" width="80" height="34" rx="14" fill="#94a3b8" opacity="0.4"/></g>
+</svg>

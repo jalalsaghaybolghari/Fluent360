@@ -1,0 +1,10 @@
+<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='apple illustration'>
+  <defs>
+    <linearGradient id='apple-bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#0f172a' />
+      <stop offset='100%' stop-color='#1e293b' />
+    </linearGradient>
+  </defs>
+  <rect width='200' height='200' rx='24' fill='url(#apple-bg)' />
+  <g transform='translate(0,0)'><circle cx="90" cy="95" r="32" fill="#ef4444"/><rect x="86" y="52" width="8" height="16" fill="#15803d"/><path d="M94 60 Q110 50 120 60" stroke="#22c55e" stroke-width="6" fill="none"/></g>
+</svg>

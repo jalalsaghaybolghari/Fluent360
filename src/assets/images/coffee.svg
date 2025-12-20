@@ -1,0 +1,10 @@
+<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='coffee illustration'>
+  <defs>
+    <linearGradient id='coffee-bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#0f172a' />
+      <stop offset='100%' stop-color='#1e293b' />
+    </linearGradient>
+  </defs>
+  <rect width='200' height='200' rx='24' fill='url(#coffee-bg)' />
+  <g transform='translate(0,0)'><rect x="60" y="90" width="80" height="50" rx="8" fill="#cbd5e1"/><path d="M140 96 Q160 96 160 120 Q160 144 140 144" fill="none" stroke="#0f172a" stroke-width="6"/><rect x="70" y="100" width="60" height="30" fill="#8b5cf6"/><line x1="90" y1="70" x2="84" y2="50" stroke="#a16207" stroke-width="5"/><line x1="110" y1="70" x2="104" y2="50" stroke="#a16207" stroke-width="5"/></g>
+</svg>
