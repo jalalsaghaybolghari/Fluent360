@@ -25,6 +25,19 @@ export function useAudioPlayer({
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentClip, setCurrentClip] = useState<Clip | null>(null);
 
+  // Keep the latest callbacks in refs so the audio element can be created once
+  // (empty dependency array) without going stale. Depending on the callbacks
+  // directly would recreate the <audio> element on every render and abort any
+  // clip that is currently playing.
+  const onEndedRef = useRef(onEnded);
+  const onErrorRef = useRef(onError);
+  const onBlockedRef = useRef(onBlocked);
+  useEffect(() => {
+    onEndedRef.current = onEnded;
+    onErrorRef.current = onError;
+    onBlockedRef.current = onBlocked;
+  }, [onEnded, onError, onBlocked]);
+
   useEffect(() => {
     const audio = new Audio();
     audio.preload = "auto";
@@ -32,16 +45,16 @@ export function useAudioPlayer({
 
     const handleEnded = () => {
       setIsPlaying(false);
-      if (clipRef.current && onEnded) {
-        onEnded(clipRef.current);
+      if (clipRef.current && onEndedRef.current) {
+        onEndedRef.current(clipRef.current);
       }
     };
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
-    const handleError = (event: ErrorEvent) => {
+    const handleError = (event: Event) => {
       setIsPlaying(false);
 
-      const audioErr = event.error || audioRef.current?.error;
+      const audioErr = (event as ErrorEvent).error || audioRef.current?.error;
       const errName = (audioErr as { name?: string })?.name || "";
       const errMsg = (audioErr as { message?: string })?.message || "";
       const mediaCode = (audioErr as MediaError | null)?.code;
@@ -57,12 +70,12 @@ export function useAudioPlayer({
       const isBlocked =
         errName === "NotAllowedError" || errMsg.toLowerCase().includes("gesture");
       if (isBlocked) {
-        if (onBlocked) onBlocked(clipRef.current);
+        if (onBlockedRef.current) onBlockedRef.current(clipRef.current);
         return;
       }
 
-      if (onError) {
-        onError(clipRef.current, audioErr);
+      if (onErrorRef.current) {
+        onErrorRef.current(clipRef.current, audioErr);
       } else if (clipRef.current) {
         console.warn("Audio failed to load", clipRef.current.src, audioErr);
       }
@@ -79,7 +92,7 @@ export function useAudioPlayer({
       audio.removeEventListener("error", handleError);
       audio.pause();
     };
-  }, [onEnded]);
+  }, []);
 
   const playClip = useCallback(
     (clip: Clip) => {
@@ -115,18 +128,18 @@ export function useAudioPlayer({
             errName === "NotAllowedError" ||
             errMsg.toLowerCase().includes("gesture");
           if (isBlocked) {
-            if (onBlocked) onBlocked(clip);
+            if (onBlockedRef.current) onBlockedRef.current(clip);
           } else {
             console.warn(
               "Audio play failed",
               err,
               audio.error ? `code:${audio.error.code}` : ""
             );
-            if (onError) onError(clip, err);
+            if (onErrorRef.current) onErrorRef.current(clip, err);
           }
         });
     },
-    [onError, onBlocked]
+    []
   );
 
   const pause = useCallback(() => {

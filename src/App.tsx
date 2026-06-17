@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import BottomPlayer, { AutoplayMode } from "./components/BottomPlayer";
 import WordCard from "./components/WordCard";
-import { words } from "./data/mockWords";
+import { words, Word } from "./data/mockWords";
 import { Clip, useAudioPlayer } from "./hooks/useAudioPlayer";
 import { usePersistentState } from "./hooks/usePersistentState";
 
@@ -32,10 +32,9 @@ function App() {
 
   const safeIndex = clampIndex(selectedIndex, words.length);
   const selectedWord = words[safeIndex] ?? words[0];
-  const [audioError, setAudioError] = usePersistentState<string | null>(
-    "fluent360-audio-error",
-    null
-  );
+  // Transient UI state — must NOT persist, or a one-off failure keeps showing
+  // the error banner on every reload even after audio works again.
+  const [audioError, setAudioError] = useState<string | null>(null);
 
   const {
     playClip,

@@ -12,23 +12,29 @@ const imagesDir = path.join(projectRoot, "src", "assets", "images");
 const ensureDir = (p: string) => fs.mkdirSync(p, { recursive: true });
 ensureDir(audioDir);
 
-type VoiceBin = "espeak-ng" | "espeak" | null;
+type VoiceBin = "say" | "espeak-ng" | "espeak" | null;
 
-function detectEspeak(): VoiceBin {
-  const bins: VoiceBin[] = ["espeak-ng", "espeak", null];
+function detectVoice(): VoiceBin {
+  // macOS `say` produces natural speech; fall back to espeak on Linux.
+  if (process.platform === "darwin") {
+    const result = spawnSync("which", ["say"], { stdio: "ignore" });
+    if (result.status === 0) return "say";
+  }
+  const bins: Exclude<VoiceBin, "say" | null>[] = ["espeak-ng", "espeak"];
   for (const bin of bins) {
-    if (!bin) continue;
     const result = spawnSync(bin, ["--version"], { stdio: "ignore" });
     if (result.status === 0) return bin;
   }
   return null;
 }
 
-function generateWithEspeak(bin: VoiceBin, text: string, output: string) {
+function generateWithVoice(bin: VoiceBin, text: string, output: string) {
   if (!bin) return false;
-  const result = spawnSync(bin, ["-w", output, text], {
-    stdio: "inherit",
-  });
+  const args =
+    bin === "say"
+      ? ["-o", output, "--file-format=WAVE", "--data-format=LEI16@44100", text]
+      : ["-w", output, text];
+  const result = spawnSync(bin, args, { stdio: "inherit" });
   return result.status === 0;
 }
 
@@ -76,11 +82,11 @@ function validateImages(ids: string[]) {
 }
 
 async function main() {
-  const bin = detectEspeak();
+  const bin = detectVoice();
   console.log(
     bin
       ? `Using ${bin} for audio generation`
-      : "espeak/espeak-ng not found; generating beep placeholders."
+      : "No TTS voice found; generating beep placeholders."
   );
 
   validateImages(wordMeta.map((w) => w.id));
@@ -93,8 +99,8 @@ async function main() {
     let sentOk = false;
 
     if (bin) {
-      pronOk = generateWithEspeak(bin, entry.word, pronPath);
-      sentOk = generateWithEspeak(bin, entry.exampleSentence, sentencePath);
+      pronOk = generateWithVoice(bin, entry.word, pronPath);
+      sentOk = generateWithVoice(bin, entry.exampleSentence, sentencePath);
     }
 
     if (!pronOk) {
