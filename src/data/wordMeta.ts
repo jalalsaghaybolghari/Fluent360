@@ -1,0 +1,178 @@
+export type WordMeta = {
+  id: string;
+  word: string;
+  phonetic: string;
+  definition: string;
+  exampleSentence: string;
+};
+
+export const wordMeta: WordMeta[] = [
+  {
+    id: "east",
+    word: "east",
+    phonetic: "iːst",
+    definition: "the direction where the sun rises",
+    exampleSentence: "My window faces east so I can watch the sunrise every morning.",
+  },
+  {
+    id: "expensive",
+    word: "expensive",
+    phonetic: "ɪkˈspensɪv",
+    definition: "costing a lot of money",
+    exampleSentence: "The watch looks nice, but it was too expensive for my budget.",
+  },
+  {
+    id: "flower",
+    word: "flower",
+    phonetic: "ˈflaʊər",
+    definition: "the colored part of a plant",
+    exampleSentence: "She bought a bright flower to decorate her desk.",
+  },
+  {
+    id: "river",
+    word: "river",
+    phonetic: "ˈrɪvər",
+    definition: "a large natural flow of water",
+    exampleSentence: "They camped beside the river and listened to the water at night.",
+  },
+  {
+    id: "mountain",
+    word: "mountain",
+    phonetic: "ˈmaʊntən",
+    definition: "a very high hill with steep sides",
+    exampleSentence: "Clouds wrapped around the mountain after the storm.",
+  },
+  {
+    id: "generous",
+    word: "generous",
+    phonetic: "ˈdʒenərəs",
+    definition: "willing to give more than usual",
+    exampleSentence: "She is generous with her time and mentors new teammates.",
+  },
+  {
+    id: "fragile",
+    word: "fragile",
+    phonetic: "ˈfrædʒaɪl",
+    definition: "easily broken or damaged",
+    exampleSentence: "The glass vase is fragile, so handle it carefully.",
+  },
+  {
+    id: "victory",
+    word: "victory",
+    phonetic: "ˈvɪktəri",
+    definition: "success over an opponent or difficulty",
+    exampleSentence: "The team celebrated their victory with a parade.",
+  },
+  {
+    id: "apple",
+    word: "apple",
+    phonetic: "ˈæp.əl",
+    definition: "a round fruit with red or green skin",
+    exampleSentence: "He packed an apple for a quick snack.",
+  },
+  {
+    id: "book",
+    word: "book",
+    phonetic: "bʊk",
+    definition: "a set of printed pages bound together",
+    exampleSentence: "She opened her favorite book before bed.",
+  },
+  {
+    id: "cat",
+    word: "cat",
+    phonetic: "kæt",
+    definition: "a small animal kept as a pet",
+    exampleSentence: "The cat slept on the sunny windowsill.",
+  },
+  {
+    id: "dog",
+    word: "dog",
+    phonetic: "dɔg",
+    definition: "a domesticated animal often kept as a pet",
+    exampleSentence: "The dog wagged its tail at the door.",
+  },
+  {
+    id: "sun",
+    word: "sun",
+    phonetic: "sʌn",
+    definition: "the star that provides light to earth",
+    exampleSentence: "The sun warmed the hillside.",
+  },
+  {
+    id: "moon",
+    word: "moon",
+    phonetic: "muːn",
+    definition: "the natural satellite of earth",
+    exampleSentence: "The moon lit the quiet night.",
+  },
+  {
+    id: "rain",
+    word: "rain",
+    phonetic: "reɪn",
+    definition: "water that falls from clouds",
+    exampleSentence: "Rain tapped gently on the roof.",
+  },
+  {
+    id: "snow",
+    word: "snow",
+    phonetic: "snoʊ",
+    definition: "soft white frozen water falling from the sky",
+    exampleSentence: "Snow covered the quiet street.",
+  },
+  {
+    id: "tree",
+    word: "tree",
+    phonetic: "triː",
+    definition: "a tall plant with a trunk and branches",
+    exampleSentence: "The tree gave shade to the bench.",
+  },
+  {
+    id: "beach",
+    word: "beach",
+    phonetic: "biːtʃ",
+    definition: "sandy shore beside a body of water",
+    exampleSentence: "We relaxed on the beach at sunset.",
+  },
+  {
+    id: "city",
+    word: "city",
+    phonetic: "ˈsɪti",
+    definition: "a large town where many people live",
+    exampleSentence: "The city lights sparkled at night.",
+  },
+  {
+    id: "music",
+    word: "music",
+    phonetic: "ˈmjuːzɪk",
+    definition: "organized sound with rhythm and melody",
+    exampleSentence: "Soft music played in the cafe.",
+  },
+  {
+    id: "travel",
+    word: "travel",
+    phonetic: "ˈtrævəl",
+    definition: "to go from one place to another",
+    exampleSentence: "They love to travel and explore new cities.",
+  },
+  {
+    id: "coffee",
+    word: "coffee",
+    phonetic: "ˈkɒfi",
+    definition: "a drink made from roasted beans",
+    exampleSentence: "He ordered a hot coffee to start the day.",
+  },
+  {
+    id: "study",
+    word: "study",
+    phonetic: "ˈstʌdi",
+    definition: "to learn about a subject",
+    exampleSentence: "She went to the library to study for her exam.",
+  },
+  {
+    id: "friend",
+    word: "friend",
+    phonetic: "frend",
+    definition: "a person you know well and like",
+    exampleSentence: "He called his friend to share the good news.",
+  },
+];

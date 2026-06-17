@@ -1,0 +1,10 @@
+<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='beach illustration'>
+  <defs>
+    <linearGradient id='beach-bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#0f172a' />
+      <stop offset='100%' stop-color='#1e293b' />
+    </linearGradient>
+  </defs>
+  <rect width='200' height='200' rx='24' fill='url(#beach-bg)' />
+  <g transform='translate(0,0)'><rect x="0" y="110" width="200" height="50" fill="#fbbf24"/><path d="M0 100 Q40 90 80 100 T160 100 L200 100 L200 110 L0 110 Z" fill="#38bdf8"/><circle cx="150" cy="60" r="18" fill="#f59e0b"/></g>
+</svg>

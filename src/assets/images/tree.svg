@@ -1,0 +1,10 @@
+<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='tree illustration'>
+  <defs>
+    <linearGradient id='tree-bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#0f172a' />
+      <stop offset='100%' stop-color='#1e293b' />
+    </linearGradient>
+  </defs>
+  <rect width='200' height='200' rx='24' fill='url(#tree-bg)' />
+  <g transform='translate(0,0)'><rect x="82" y="110" width="16" height="40" fill="#854d0e"/><circle cx="90" cy="90" r="32" fill="#22c55e"/></g>
+</svg>
